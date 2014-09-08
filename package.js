@@ -1,7 +1,7 @@
 Package.describe({
   summary: "Various patterns useful with the 'check' command",
   version: "0.0.1",
-  git: "https://github.com/CyCoreSystems/meteor-check-patterns/meteor-check-patterns.git"
+  git: "https://github.com/CyCoreSystems/meteor-check-patterns.git"
 });
 
 Package.onUse(function(api) {
