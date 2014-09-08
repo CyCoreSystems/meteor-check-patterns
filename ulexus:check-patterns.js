@@ -5,6 +5,20 @@ Match.NonEmptyString = Match.Where(function(x) {
    return x.length > 0;
 });
 
+// FloatString makes sure the input is a string which
+// can be parsed into a float without error
+Match.FloatString = Match.Where(function(x) {
+   check(x, String);
+   return isNaN(parseFloat(x)) == false;
+});
+
+// IntString makes sure the input is a string which
+// can be parsed into an integer without error
+Match.IntString = Match.Where(function(x) {
+   check(x, String);
+   return isNaN(parseInt(x)) == false;
+});
+
 // PhoneNANPA makes sure the input matches the form
 // NXX-NXX-XXXX (with or without dashes, with or without a leading 1)
 Match.PhoneNANPA = Match.Where(function(x) {

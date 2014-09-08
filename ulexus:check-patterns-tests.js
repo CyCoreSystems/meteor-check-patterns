@@ -9,6 +9,48 @@ Tinytest.add('ulexus:check-patterns-tests - NonEmptyString', function (test) {
    test.isUndefined(check('Alpha',Match.NonEmptyString));
 });
 
+// FloatString
+Tinytest.add('ulexus:check-patterns-tests - FloatString', function(test) {
+   pat = Match.FloatString;
+   test.throws(function() {
+      check(undefined,pat);
+   },/Match error/);
+   test.throws(function() {
+      check('',pat);
+   },/Match error/);
+   test.throws(function() {
+      check('Alpha',pat);
+   },/Match error/);
+   test.isUndefined(check('911',pat));
+   test.isUndefined(check('911.111',pat));
+   test.isUndefined(check('911e11',pat));
+   test.isUndefined(check('010',pat));
+   test.isUndefined(check('-010',pat));
+   test.isUndefined(check('-010.842',pat));
+});
+
+// IntString
+//   Note:  at present, these are effectively the same as FloatString
+//     Perhaps there is a difference between the two which may be discovered
+//     in the future?
+Tinytest.add('ulexus:check-patterns-tests - IntString', function(test) {
+   pat = Match.IntString;
+   test.throws(function() {
+      check(undefined,pat);
+   },/Match error/);
+   test.throws(function() {
+      check('',pat);
+   },/Match error/);
+   test.throws(function() {
+      check('Alpha',pat);
+   },/Match error/);
+   test.isUndefined(check('911',pat));
+   test.isUndefined(check('911.111',pat));
+   test.isUndefined(check('911e11',pat));
+   test.isUndefined(check('010',pat));
+   test.isUndefined(check('-010',pat));
+   test.isUndefined(check('-010.842',pat));
+});
 
 // PhoneNANPA
 Tinytest.add('ulexus:check-patterns-tests - PhoneNANPA', function (test) {

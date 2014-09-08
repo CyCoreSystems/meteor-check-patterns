@@ -12,13 +12,24 @@ Example:
 ### `Match.NonEmptyString`
 
 Checks that:
-1. the input is a string
-2. that it is non-zero in length
+   1. the input is a string
+   2. that it is non-zero in length
 
+### `Match.FloatString`
+
+Checks that:
+   1. the input is a string
+   2. that it can be parsed as a float (with parseFloat)
+
+### `Match.FloatInt`
+
+Checks that:
+   1. the input is a string
+   2. that it can be parsed as an integer (with parseInt)
 
 ### `Match.PhoneNANPA`
 
 Checks that:
-1. the input is a string
-2. that it is of the form NXX-NXX-XXXX (dashes,dots,leading '1' insignificant)
+   1. the input is a string
+   2. that it is of the form NXX-NXX-XXXX (dashes,dots,leading '1' insignificant)
 
