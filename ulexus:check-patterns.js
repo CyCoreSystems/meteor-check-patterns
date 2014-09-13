@@ -19,6 +19,21 @@ Match.IntString = Match.Where(function(x) {
    return isNaN(parseInt(x)) == false;
 });
 
+// NumberPositive makes sure the input can be parsed
+// as a positive number (>0)
+Match.NumberPositive = Match.Where(function(x) {
+   var num = parseFloat(x);
+   if( isNaN(num) ) {
+      console.log(x,"is not a number");
+      return false;
+   }
+   if( num <= 0 ) {
+      console.log(x,"is not positive");
+      return false;
+   }
+   return true;
+});
+
 // PhoneNANPA makes sure the input matches the form
 // NXX-NXX-XXXX (with or without dashes, with or without a leading 1)
 Match.PhoneNANPA = Match.Where(function(x) {

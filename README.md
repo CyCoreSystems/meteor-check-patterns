@@ -27,6 +27,11 @@ Checks that:
    1. the input is a string
    2. that it can be parsed as an integer (with parseInt)
 
+### `Match.NumberPositive`
+
+Checks that:
+   1. the input can be parsed as a positive (non-zero) number
+
 ### `Match.PhoneNANPA`
 
 Checks that:

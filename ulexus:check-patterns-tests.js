@@ -52,6 +52,48 @@ Tinytest.add('ulexus:check-patterns-tests - IntString', function(test) {
    test.isUndefined(check('-010.842',pat));
 });
 
+// NumberPositive
+Tinytest.add('ulexus:check-patterns-tests - NumberPositive', function(test) {
+   pat = Match.NumberPositive;
+   test.throws(function() {
+      check(undefined,pat);
+   },/Match error/);
+   test.throws(function() {
+      check('',pat);
+   },/Match error/);
+   test.throws(function() {
+      check('Alpha',pat);
+   },/Match error/);
+   test.throws(function() {
+      check('0',pat);
+   },/Match error/);
+   test.throws(function() {
+      check(0,pat);
+   },/Match error/);
+   test.throws(function() {
+      check('-1',pat);
+   },/Match error/);
+   test.throws(function() {
+      check(-1,pat);
+   },/Match error/);
+   test.throws(function() {
+      check('-1.1',pat);
+   },/Match error/);
+   test.throws(function() {
+      check(-1.1,pat);
+   },/Match error/);
+   test.isUndefined(check('911',pat));
+   test.isUndefined(check(911,pat));
+   test.isUndefined(check('911.111',pat));
+   test.isUndefined(check(911.111,pat));
+   test.isUndefined(check('911e11',pat));
+   test.isUndefined(check(911e11,pat));
+   test.isUndefined(check('010',pat));
+   test.isUndefined(check(010,pat));
+   test.isUndefined(check('0.10',pat));
+   test.isUndefined(check(0.10,pat));
+});
+
 // PhoneNANPA
 Tinytest.add('ulexus:check-patterns-tests - PhoneNANPA', function (test) {
    pat = Match.PhoneNANPA;
