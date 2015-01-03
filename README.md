@@ -32,6 +32,12 @@ Checks that:
 Checks that:
    1. the input can be parsed as a positive (non-zero) number
 
+### `Match.Email`
+
+Checks that:
+   1. the input is a string
+   2. it matches a regex for an email address
+
 ### `Match.PhoneNANPA`
 
 Checks that:

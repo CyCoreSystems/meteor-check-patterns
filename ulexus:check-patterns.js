@@ -24,14 +24,27 @@ Match.IntString = Match.Where(function(x) {
 Match.NumberPositive = Match.Where(function(x) {
    var num = parseFloat(x);
    if( isNaN(num) ) {
-      console.log(x,"is not a number");
       return false;
    }
    if( num <= 0 ) {
-      console.log(x,"is not positive");
       return false;
    }
    return true;
+});
+
+// Email makes sure the input matches the
+// form of an email address
+// (Stolen from http://www.regular-expressions.info/email.html)
+Match.Email = Match.Where(function(x) {
+   check(x, String);
+
+   // Trim whitespace
+   var stripped = String(x).trim();
+
+   if(x.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)) {
+      return true;
+   }
+   throw new Meteor.Error(400,"Match error: Invalid email regex");
 });
 
 // PhoneNANPA makes sure the input matches the form

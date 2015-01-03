@@ -11,7 +11,7 @@ Tinytest.add('ulexus:check-patterns-tests - NonEmptyString', function (test) {
 
 // FloatString
 Tinytest.add('ulexus:check-patterns-tests - FloatString', function(test) {
-   pat = Match.FloatString;
+   var pat = Match.FloatString;
    test.throws(function() {
       check(undefined,pat);
    },/Match error/);
@@ -34,7 +34,7 @@ Tinytest.add('ulexus:check-patterns-tests - FloatString', function(test) {
 //     Perhaps there is a difference between the two which may be discovered
 //     in the future?
 Tinytest.add('ulexus:check-patterns-tests - IntString', function(test) {
-   pat = Match.IntString;
+   var pat = Match.IntString;
    test.throws(function() {
       check(undefined,pat);
    },/Match error/);
@@ -54,7 +54,7 @@ Tinytest.add('ulexus:check-patterns-tests - IntString', function(test) {
 
 // NumberPositive
 Tinytest.add('ulexus:check-patterns-tests - NumberPositive', function(test) {
-   pat = Match.NumberPositive;
+   var pat = Match.NumberPositive;
    test.throws(function() {
       check(undefined,pat);
    },/Match error/);
@@ -94,9 +94,34 @@ Tinytest.add('ulexus:check-patterns-tests - NumberPositive', function(test) {
    test.isUndefined(check(0.10,pat));
 });
 
+// Email
+Tinytest.add('ulexus:check-patterns-tests - Email', function(test) {
+   var pat = Match.Email;
+   test.throws(function() {
+      check(undefined,pat);
+   },/Match error/);
+   test.throws(function() {
+      check('',pat)
+   },/Match error/);
+   test.throws(function() {
+      check('Alpha',pat);
+   },/Match error/);
+   test.throws(function() {
+      check('911',pat);
+   },/Match error/);
+   test.throws(function() {
+      check('a@blah',pat);
+   },/Match error/);
+   test.isUndefined(check('test@testco.com',pat));
+   test.isUndefined(check('test@sub.testco.com',pat));
+   test.isUndefined(check('test@sub.sub.testco.com',pat));
+   test.isUndefined(check('t8459.electrose@sub.sub.testco.com',pat));
+   test.isUndefined(check('45_82+cg.hg_wells@sub.sub.testco.com',pat));
+});
+
 // PhoneNANPA
 Tinytest.add('ulexus:check-patterns-tests - PhoneNANPA', function (test) {
-   pat = Match.PhoneNANPA;
+   var pat = Match.PhoneNANPA;
    test.throws(function() {
       check(undefined,pat);
    },/Match error/);
