@@ -21,7 +21,7 @@ Checks that:
    1. the input is a string
    2. that it can be parsed as a float (with parseFloat)
 
-### `Match.FloatInt`
+### `Match.IntString`
 
 Checks that:
    1. the input is a string
